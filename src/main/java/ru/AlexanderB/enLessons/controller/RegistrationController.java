@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.AlexanderB.enLessons.domain.Role;
 import ru.AlexanderB.enLessons.domain.User;
-import ru.AlexanderB.enLessons.repositories.UserReposit;
+import ru.AlexanderB.enLessons.repository.UserRepository;
 
 import java.util.Collections;
 import java.util.Map;
@@ -14,7 +14,7 @@ import java.util.Map;
 @Controller
 public class RegistrationController {
     @Autowired
-    private UserReposit userReposit;
+    private UserRepository userRepository;
 
     @GetMapping("/registration")
     public String registration( ) {
@@ -23,7 +23,7 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(User user,Map<String, Object> model ) {
-        User userFromDb = userReposit.findByUsername(user.getUsername());
+        User userFromDb = userRepository.findByUsername(user.getUsername());
 
         if(userFromDb != null){
             model.put("message","User exists!");  //if user already exist- send message on registr. page.
@@ -32,7 +32,7 @@ public class RegistrationController {
 
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.User));
-        userReposit.save(user);
+        userRepository.save(user);
         return "redirect:/login";
     }
 }
