@@ -1,7 +1,7 @@
 package ru.AlexanderB.enLessons.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.AlexanderB.enLessons.domain.User;
+import ru.AlexanderB.enLessons.model.User;
 
 
 //public interface UserRepository extends JpaRepository<User, Long> {

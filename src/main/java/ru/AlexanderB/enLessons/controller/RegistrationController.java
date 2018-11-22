@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.AlexanderB.enLessons.domain.Role;
-import ru.AlexanderB.enLessons.domain.User;
+import ru.AlexanderB.enLessons.model.Role;
+import ru.AlexanderB.enLessons.model.User;
 import ru.AlexanderB.enLessons.repository.UserRepository;
 
 import java.util.Collections;

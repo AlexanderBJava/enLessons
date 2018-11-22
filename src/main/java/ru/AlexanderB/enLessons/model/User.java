@@ -1,4 +1,4 @@
-package ru.AlexanderB.enLessons.domain;
+package ru.AlexanderB.enLessons.model;
 
 import lombok.Data;
 
