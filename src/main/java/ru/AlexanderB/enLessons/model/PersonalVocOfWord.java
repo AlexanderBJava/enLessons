@@ -7,7 +7,8 @@ import javax.persistence.*;
 
 /**
  * Класс - модель для сбора статистику выученных слов пользователями
- * TODO: впиши автора
+ *
+ * @author Alexander Bogomolov
  * */
 
 @Entity
