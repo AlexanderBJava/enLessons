@@ -12,7 +12,7 @@ import javax.persistence.*;
  * */
 
 @Entity
-@Table(name = "words_statistic", uniqueConstraints = @UniqueConstraint(columnNames = {"words","user"}))
+@Table(name = "words_statistic")//!!!CRASH, uniqueConstraints = {@UniqueConstraint(columnNames = {"words","user"})})
 @Data
 @NoArgsConstructor
 public class PersonalVocOfWord {

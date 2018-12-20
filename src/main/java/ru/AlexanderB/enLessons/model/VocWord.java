@@ -20,4 +20,8 @@ public class VocWord {
     @SequenceGenerator(name = "seq_id_vocabulary", sequenceName = "seq_id_vocabulary", allocationSize = 1)
     private Long id;
     private String value;
+
+    public VocWord(String value) {
+        this.value = value;
+    }
 }
