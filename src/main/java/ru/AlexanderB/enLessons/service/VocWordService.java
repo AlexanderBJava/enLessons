@@ -7,6 +7,7 @@ import ru.AlexanderB.enLessons.model.VocWord;
 import ru.AlexanderB.enLessons.repository.VocWordRepo;
 
 import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 @Service
 
@@ -39,6 +40,10 @@ public class VocWordService {
         return vocwords;
     }
 
+    public void delete(Long id){
+       vocWordRepo.deleteById(id);
+
+    }
 
 }
 

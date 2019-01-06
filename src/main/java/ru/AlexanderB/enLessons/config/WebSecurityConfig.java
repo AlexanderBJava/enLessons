@@ -22,17 +22,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-               // .mvcMatchers("/",  "/registration", "/vocabulary").permitAll()  //can go on root w/o autorization
-                .mvcMatchers().permitAll()  //can go on root w/o autorization
-
-               // .anyRequest().authenticated()
-              //  .and()
-              //  .formLogin()
-              //  .loginPage("/login")
-             //   .permitAll()
+               // .mvcMatchers("/",  "/registration").permitAll()  //can go on root w/o autorization
+                .mvcMatchers("/").permitAll()//ToDo убрать эту и 2 нижних строки. раскоментить сверху и вснизу.
                 .and()
-                .logout()
-                .permitAll();
+                .csrf().disable();
+
+
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .permitAll();
     }
 
     @Override

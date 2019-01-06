@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 @RestController
 @RequestMapping("/vocabulary")
 //@Controller
@@ -23,19 +24,21 @@ public class VocabularyController {
     public Iterable all() {
 
 
-
         return vocWordService.getAll();
     }
 
-    @RequestMapping (method=RequestMethod.POST)//("/vocabulary")
-   // public String add(@RequestParam String value, Map<String, Object> model) {
+    @RequestMapping(method = RequestMethod.POST)//("/vocabulary")
+    // public String add(@RequestParam String value, Map<String, Object> model) {
     public VocWord add(@RequestBody VocWord vocWord) {
 
 
         return vocWordService.add(vocWord);
     }
 
-
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        vocWordService.delete(id);
+    }
 
 }
 //@RestController
