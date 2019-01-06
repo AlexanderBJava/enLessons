@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.AlexanderB.enLessons.model.VocWord;
 import ru.AlexanderB.enLessons.repository.VocWordRepo;
+import ru.AlexanderB.enLessons.service.VocWordService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,28 +17,22 @@ import java.util.Map;
 public class VocabularyController {
 
     @Autowired
-    private VocWordRepo vocWordRepo;
+    private VocWordService vocWordService;
 
     @GetMapping//("/vocabulary")
-    public Iterable vocabulary() {//( Map<String, Object> model) {
+    public Iterable all() {
 
-        Iterable vocwords= vocWordRepo.findAll();
 
-       // model.put("someInMain", "Hello Everyone!");
-       // model.put("vocwords", vocwords);
-       // return "vocabulary";
-        return vocwords;
+
+        return vocWordService.getAll();
     }
 
-    @PostMapping//("/vocabulary")
+    @RequestMapping (method=RequestMethod.POST)//("/vocabulary")
    // public String add(@RequestParam String value, Map<String, Object> model) {
-    public Iterable add(@RequestParam String value, Map<String, Object> model) {
+    public VocWord add(@RequestBody VocWord vocWord) {
 
-        VocWord vocWord=new VocWord(value);
-        vocWordRepo.save(vocWord);
-        Iterable vocwords= vocWordRepo.findAll();
-        model.put("vocwords", vocwords);
-        return vocwords;
+
+        return vocWordService.add(vocWord);
     }
 
 

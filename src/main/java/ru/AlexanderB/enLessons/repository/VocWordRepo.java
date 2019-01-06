@@ -5,6 +5,6 @@ package ru.AlexanderB.enLessons.repository;
         import ru.AlexanderB.enLessons.model.VocWord;
 
 public interface VocWordRepo extends CrudRepository<VocWord,Long> {
-    //VocWordRepo finfByValue (String value);
+    VocWord findByValue (String value);
 
 }
