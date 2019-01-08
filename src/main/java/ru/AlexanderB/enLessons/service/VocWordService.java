@@ -16,6 +16,13 @@ public class VocWordService {
     @Autowired
     private VocWordRepo vocWordRepo;
 
+    public Iterable getAll() {
+
+        Iterable vocwords= vocWordRepo.findAll();
+        //ToDo пагинация
+
+        return vocwords;
+    }
 
     public VocWord add(@NotNull VocWord vocWord) {
         VocWord result = null;
@@ -32,13 +39,7 @@ public class VocWordService {
 
     }
 
-    public Iterable getAll() {
 
-        Iterable vocwords= vocWordRepo.findAll();
-        //ToDo пагинация
-
-        return vocwords;
-    }
 
     public void delete(Long id){
        vocWordRepo.deleteById(id);
